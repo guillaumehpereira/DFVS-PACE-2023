@@ -17,27 +17,6 @@ def dfs_iter(graph):
     return back_edges
 
 
-def topological_sort(graph):
-    in_degree = {u : 0 for u in graph}
-    for u in graph:
-        for v in graph[u]:
-            in_degree[v] += 1
-
-    queue = [u for u in graph if in_degree[u] == 0]
-
-    sorted_order = []
-    while queue:
-        u = queue.pop(0)
-        sorted_order.append(u)
-        for v in graph[u]:
-            in_degree[v] -= 1
-            if in_degree[v] == 0:
-                queue.append(v)
-
-    if len(sorted_order) != len(graph):
-        return None # Cycle present in the graph
-    return sorted_order 
-    
 def remove_vertex(graph, vertex_to_remove):
     # Supprimer le sommet du graphe
     del graph[vertex_to_remove]
