@@ -25,6 +25,8 @@ def remove_vertex(graph, vertex_to_remove):
         if vertex_to_remove in graph[vertex]:
             graph[vertex].remove(vertex_to_remove)
     return graph
+
+
 def most_common_vertex(edge_list):
     vertex_count = {}
     # Compter les occurrences de chaque sommet
