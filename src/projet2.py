@@ -1,5 +1,5 @@
 import sys
-import random
+
 
 #Fonctions pour la méthode avec les arcs arrières
 
