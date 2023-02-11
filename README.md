@@ -4,15 +4,15 @@
 
 ## AUTHOR
 
-votre nom / prénom
+PEREIRA Guillaume
 
 ## Optilio
 
-Indiquer ici votre login sur [optil.io](https://www.optil.io/optilion/)
+guillaumehpereira
 
 ## USAGE
 
 indiquer ici comment utiliser votre projet, par exemple
 
-    python3 projet.py < file1.gr > solution
+    cat file1.gr | python3 projet.py > solution
 
