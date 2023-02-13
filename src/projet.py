@@ -110,6 +110,56 @@ def contains_cycle(graph):
     return False
 
 
+def remove_vertices_from_scc(SCC):
+    removed = []
+    for i in SCC:
+        if len(i) > 1:
+            for j in range (1,len(i)):
+                removed.append(i[j])
+    return removed
+
+
+def simplified_graph(graph,DFVS):
+
+    for i in DFVS:
+        graph = remove_vertex(graph, i)
+
+    vertices_degree_out_0 = vertices_out_degree_0(graph)
+
+    for i in vertices_degree_out_0:
+        graph = remove_vertex(graph, i)
+
+    vertices_degree_in_0 = vertices_in_degree_0(graph)
+
+    for i in vertices_degree_in_0:
+        graph = remove_vertex(graph, i)
+    
+    return graph
+
+
+def LVR(back_edges):
+
+    list_of_vertices_to_remove = []
+
+    while back_edges:
+        
+        vertex_to_remove = most_common_vertex(back_edges)[0]
+        list_of_vertices_to_remove.append(vertex_to_remove)
+        back_edges = most_common_vertex(back_edges)[1]
+    
+    return list_of_vertices_to_remove
+
+def optimised_DFVS(graph, DFVS): 
+    
+    while(contains_cycle(graph)):
+            
+            I = list_of_vertices_to_remove.pop(0)
+            graph = remove_vertex(graph, I)
+            DFVS.append(I)
+
+    return DFVS
+
+
 #Fonctions pour la méthode avec les CFC
 
 
@@ -162,56 +212,6 @@ def find_scc(graph):
                             stack.append(neighbour)
             scc.append(current_scc)
     return scc
-
-
-def remove_vertices_from_scc(SCC):
-    removed = []
-    for i in SCC:
-        if len(i) > 1:
-            for j in range (1,len(i)):
-                removed.append(i[j])
-    return removed
-
-
-def simplified_graph(graph,DFVS):
-
-    for i in DFVS:
-        graph = remove_vertex(graph, i)
-
-    vertices_degree_out_0 = vertices_out_degree_0(graph)
-
-    for i in vertices_degree_out_0:
-        graph = remove_vertex(graph, i)
-
-    vertices_degree_in_0 = vertices_in_degree_0(graph)
-
-    for i in vertices_degree_in_0:
-        graph = remove_vertex(graph, i)
-    
-    return graph
-
-
-def LVR(back_edges):
-
-    list_of_vertices_to_remove = []
-
-    while back_edges:
-        
-        vertex_to_remove = most_common_vertex(back_edges)[0]
-        list_of_vertices_to_remove.append(vertex_to_remove)
-        back_edges = most_common_vertex(back_edges)[1]
-    
-    return list_of_vertices_to_remove
-
-def optimised_DFVS(graph, DFVS): 
-    
-    while(contains_cycle(graph)):
-            
-            I = list_of_vertices_to_remove.pop(0)
-            graph = remove_vertex(graph, I)
-            DFVS.append(I)
-
-    return DFVS
 
 #MAIN
 
