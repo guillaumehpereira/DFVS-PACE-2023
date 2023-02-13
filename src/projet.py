@@ -143,9 +143,8 @@ def LVR(back_edges):
 
     while back_edges:
         
-        vertex_to_remove = most_common_vertex(back_edges)[0]
+        vertex_to_remove,back_edges = most_common_vertex(back_edges)
         list_of_vertices_to_remove.append(vertex_to_remove)
-        back_edges = most_common_vertex(back_edges)[1]
     
     return list_of_vertices_to_remove
 
