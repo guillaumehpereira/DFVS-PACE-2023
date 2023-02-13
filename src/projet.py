@@ -65,13 +65,13 @@ def remove_vertex(graph, vertex_to_remove):
 
 def most_common_vertex(edge_list):
     vertex_count = {}
-    # Compter les occurrences de chaque sommet
+   
     for edge in edge_list:
         for vertex in edge:
             if vertex not in vertex_count:
                 vertex_count[vertex] = 0
             vertex_count[vertex] += 1
-    # Trouver le sommet le plus fr￯﾿ﾯ￯ﾾ﾿￯ﾾﾯ￯﾿ﾯ￯ﾾﾾ￯ﾾ﾿￯﾿ﾯ￯ﾾﾾ￯ﾾﾃ￯﾿ﾯ￯ﾾ﾿￯ﾾﾯ￯﾿ﾯ￯ﾾﾾ￯ﾾﾾ￯﾿ﾯ￯ﾾﾾ￯ﾾﾩquent
+    
     most_common_vertex = None
     count = 0
     for vertex, vertex_count in vertex_count.items():
